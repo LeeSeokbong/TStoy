@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AddTodoForm from './components/AddTodoForm';
 import TodoList from './components/TodoList';
 
 const initialTodos: Array<Todo> = [
@@ -22,7 +23,23 @@ const App: React.FC = () => {
     setTodos(newTodos);
   };
 
-  return <TodoList todos={todos} toggleTodo={toggleTodo} />;
+  const addTodo: AddTodo = (newTodo) => {
+    if (!newTodo.trim()) {
+      return;
+    }
+
+    setTodos([
+      ...todos,
+      { id: String(todos.length + 1), text: newTodo, complete: false },
+    ]);
+  };
+
+  return (
+    <>
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <AddTodoForm addTodo={addTodo} />
+    </>
+  );
 };
 
 export default App;
