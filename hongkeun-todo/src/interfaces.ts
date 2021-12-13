@@ -5,6 +5,7 @@ export interface TodoInterface {
   };
 
 export interface TodoFormInterface {
+  createTodoList: (todo: TodoInterface) => void;
   todos: TodoInterface[];
 };
 
