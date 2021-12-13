@@ -1,25 +1,19 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React, { useState } from 'react'
+import TodoContainer from './TodoContainer'
+import TodoForm from './TodoForm'
+import TodoList from './TodoList'
+//TODO: mockdata로 비동기로 받아와서 해보면 좋을듯, + 리액트쿼리도?
+import { todoData } from './data/todos'
+import { Todo } from './types'
 
 function App() {
+  // TODO: 일단은 제일 기본적인 state와 props로 내려주지만 나중엔 context + reducer 조합 or 리코일 or 조타이
+  const [todos, setTodos] = useState<Todo[]>(todoData)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TodoContainer>
+      <TodoForm setTodos={setTodos} />
+      <TodoList todos={todos} setTodos={setTodos} />
+    </TodoContainer>
   )
 }
 
