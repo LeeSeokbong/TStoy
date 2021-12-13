@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 import { TodoListInterface } from '../interfaces';
 
 const TodoList = (props: TodoListInterface) => {
-  const { todos, onRemoveTodoClick } = props;
+  const { todos, onRemoveTodoClick, onUpdateTodoChange, onCompleteTodoClick } = props;
 
   return (
     <div>
@@ -13,6 +13,8 @@ const TodoList = (props: TodoListInterface) => {
             <TodoItem
               todo={todo}
               onRemoveTodoClick={onRemoveTodoClick}
+              onUpdateTodoChange={onUpdateTodoChange}
+              onCompleteTodoClick={onCompleteTodoClick}
             />
           </li>
         ))}
