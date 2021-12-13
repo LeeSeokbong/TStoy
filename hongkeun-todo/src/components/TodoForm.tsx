@@ -1,6 +1,8 @@
 import React from 'react';
+import { TodoFormInterface } from '../interfaces';
 
-const TodoForm = (props: any) => {
+
+const TodoForm = (props: TodoFormInterface) => {
   const { todos } = props;
 
   return (

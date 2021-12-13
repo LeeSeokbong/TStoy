@@ -1,13 +1,14 @@
 import * as React from 'react';
 import TodoItem from './TodoItem';
+import { TodoListInterface } from '../interfaces';
 
-const TodoList = (props: any) => {
+const TodoList = (props: TodoListInterface) => {
   const { todos } = props;
 
   return (
     <div>
       <ul>
-        {todos.map((todo: any) => (
+        {todos.map((todo) => (
           <li key={todo.id}>
             <TodoItem
               todo={todo}

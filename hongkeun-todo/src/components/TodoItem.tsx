@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { TodoItemInterface } from '../interfaces';
 
-const TodoItem = (props: any) => {
+const TodoItem = (props: TodoItemInterface) => {
   const { todo } = props;
-
   return (
     <div>
       <div>
