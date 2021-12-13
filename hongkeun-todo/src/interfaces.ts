@@ -10,9 +10,11 @@ export interface TodoFormInterface {
 };
 
 export interface TodoListInterface {
+  onRemoveTodoClick: (id: number) => void;
   todos: TodoInterface[];
 };
 
 export interface TodoItemInterface {
+  onRemoveTodoClick: (id: number) => void;
   todo: TodoInterface;
 };

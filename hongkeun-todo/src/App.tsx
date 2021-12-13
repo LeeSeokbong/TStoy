@@ -14,6 +14,12 @@ function App() {
     setTodos(newTodosList);
   }
 
+  function onRemoveTodoClick(id: number) {
+    const newTodosState: TodoInterface[] = todos.filter((todo: TodoInterface) => todo.id !== id);
+
+    setTodos(newTodosState);
+  }
+
   return (
     <div>
       <TodoForm
@@ -23,6 +29,7 @@ function App() {
 
       <TodoList
         todos={todos}
+        onRemoveTodoClick={onRemoveTodoClick}
       />
     </div>
   );

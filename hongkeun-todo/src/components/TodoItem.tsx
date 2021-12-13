@@ -2,7 +2,8 @@ import * as React from 'react';
 import { TodoItemInterface } from '../interfaces';
 
 const TodoItem = (props: TodoItemInterface) => {
-  const { todo } = props;
+  const { todo, onRemoveTodoClick } = props;
+
   return (
     <div>
       <div>
@@ -17,10 +18,9 @@ const TodoItem = (props: TodoItemInterface) => {
         <input
           value={todo.text}
         />
-      </div>
-
-      <div>
-        x
+        <span onClick={() => onRemoveTodoClick(todo.id)}>
+          x
+        </span>
       </div>
     </div>
   );
