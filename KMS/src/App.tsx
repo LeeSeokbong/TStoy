@@ -34,9 +34,14 @@ const App: React.FC = () => {
     ]);
   };
 
+  const deleteTodo: DeleteTodo = (deleteTodoId) => {
+    const newTodos = todos.filter((todo) => todo.id !== deleteTodoId);
+    setTodos(newTodos);
+  };
+
   return (
     <>
-      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
       <AddTodoForm addTodo={addTodo} />
     </>
   );

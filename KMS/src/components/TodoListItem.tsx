@@ -4,11 +4,13 @@ import '../css/TodoListItem.css';
 interface TodoListItemProps {
   todo: Todo;
   toggleTodo: ToggleTodo;
+  deleteTodo: DeleteTodo;
 }
 
 export const TodoListItem: React.FC<TodoListItemProps> = ({
   todo,
   toggleTodo,
+  deleteTodo,
 }) => {
   return (
     <li>
@@ -24,6 +26,9 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
         />
         {todo.text}
       </label>
+      <button type="button" onClick={() => deleteTodo(todo.id)}>
+        Delete
+      </button>
     </li>
   );
 };
