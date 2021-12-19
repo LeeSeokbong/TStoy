@@ -5,11 +5,11 @@ interface Props {
   todos: Todo[]
   setTodos: (todos: Todo[]) => void
 }
-const TodoList = ({ todos }: Props) => {
+const TodoList = ({ todos, setTodos }: Props) => {
   return (
     <>
       {todos.map((todo) => (
-        <TodoItem todo={todo} />
+        <TodoItem todo={todo} setTodos={setTodos} />
       ))}
     </>
   )
