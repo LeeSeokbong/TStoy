@@ -6,14 +6,14 @@ import React from 'react'
 
 interface Props {
   todo: Todo
-  setTodos: any
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
+
 const TodoItem = ({ todo, setTodos }: Props) => {
   const { id, text, done } = todo
 
   const onChangeCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.error('e : ', e.target.checked)
-    setTodos((prev: any[]) =>
+    setTodos((prev) =>
       prev.map((it) => {
         if (it.id === id) {
           it.done = e.target.checked
@@ -24,7 +24,7 @@ const TodoItem = ({ todo, setTodos }: Props) => {
   }
 
   const onClickDelete = () => {
-    setTodos((prev: any[]) =>
+    setTodos((prev) =>
       prev.filter((it) => {
         return it.id !== id
       }),

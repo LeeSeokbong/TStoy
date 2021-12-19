@@ -1,10 +1,12 @@
 import { Todo } from './types'
 import TodoItem from './TodoItem'
+import React from 'react'
 
 interface Props {
   todos: Todo[]
-  setTodos: (todos: Todo[]) => void
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
+
 const TodoList = ({ todos, setTodos }: Props) => {
   return (
     <>

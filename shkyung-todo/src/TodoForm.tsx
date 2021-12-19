@@ -2,7 +2,7 @@ import React, { ChangeEvent, useRef, useState } from 'react'
 import { Todo } from './types'
 
 interface Props {
-  setTodos: any
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
 
 const TodoForm = ({ setTodos }: Props) => {
@@ -10,7 +10,7 @@ const TodoForm = ({ setTodos }: Props) => {
   const count = useRef(4)
   const addTodo = () => {
     const info: Todo = { id: count.current, text: text, done: false }
-    setTodos((prev: Todo[]) => prev.concat([info]))
+    setTodos((prev) => prev.concat([info]))
     setText('')
     count.current += 1
   }
