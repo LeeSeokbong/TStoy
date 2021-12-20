@@ -3,13 +3,14 @@ import Checkbox from '@mui/material/Checkbox'
 import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import React from 'react'
+import { useAppState } from './context/AppContext'
 
 interface Props {
   todo: Todo
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
 
-const TodoItem = ({ todo, setTodos }: Props) => {
+const TodoItem = ({ todo }: Props) => {
+  const { setTodos } = useAppState()
   const { id, text, done } = todo
 
   const onChangeCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {

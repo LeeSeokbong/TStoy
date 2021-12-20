@@ -1,17 +1,13 @@
-import { Todo } from './types'
 import TodoItem from './TodoItem'
 import React from 'react'
+import { useAppState } from './context/AppContext'
 
-interface Props {
-  todos: Todo[]
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
-}
-
-const TodoList = ({ todos, setTodos }: Props) => {
+const TodoList = () => {
+  const { todos } = useAppState()
   return (
     <>
       {todos.map((todo) => (
-        <TodoItem todo={todo} setTodos={setTodos} />
+        <TodoItem todo={todo} />
       ))}
     </>
   )
