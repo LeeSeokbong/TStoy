@@ -1,11 +1,9 @@
 import React, { ChangeEvent, useRef, useState } from 'react'
 import { Todo } from './types'
+import { useAppState } from './context/AppContext'
 
-interface Props {
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
-}
-
-const TodoForm = ({ setTodos }: Props) => {
+const TodoForm = () => {
+  const { setTodos } = useAppState()
   const [text, setText] = useState('')
   const count = useRef(4)
   const addTodo = () => {
